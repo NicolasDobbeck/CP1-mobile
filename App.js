@@ -1,11 +1,47 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Image, TextInput, Button, Alert } from 'react-native';
+import { useState } from 'react';
+import RenderizarDados from './components/RenderizarDados';
 
 export default function App() {
+  const[valorOriginal, setValorOriginal] = useState('')
+  const[porcentagem,setPorcentagem] = useState('')
+  const[mostrarDados,setMostrarDados] = useState(false)
+
+
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+      <Image
+        style={styles.imagem}
+        source={require('./assets/calculadora2.png')}
+      />
+      <TextInput
+        style={styles.input}
+        placeholder='Digite o valor'
+        autoCapitalize='words'
+        maxLength={30}
+        value={valorOriginal}
+        keyboardType='numeric'
+        onChangeText={(valor) => setValorOriginal(valor)}
+      />
+       <TextInput
+        style={styles.input}
+        placeholder='Digite porcentagem'
+        autoCapitalize='none'
+        maxLength={30}
+        value={porcentagem}
+        keyboardType='numeric'
+        onChangeText={(valor) => setPorcentagem(valor)}
+      />
+      <Button
+        title='Enviar Calculo'
+        color={'#EDB314'}
+        onPress={()=>setMostrarDados(true)}
+      />
+
+      {mostrarDados&&<RenderizarDados valueOriginal={valorOriginal} porcentagem={porcentagem}/>}
+      
+
     </View>
   );
 }
@@ -13,8 +49,20 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#1484ED',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
   },
+  imagem: {
+    resizeMode: 'center',
+    width: 350
+  },
+  input: {
+    backgroundColor: '#fff',
+    width: 300,
+    borderRadius: 7,
+    paddingLeft: 10,
+    fontSize: 18,
+    marginBottom: 20
+  }
 });
