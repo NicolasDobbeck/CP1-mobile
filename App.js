@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#1484ED',
     alignItems: 'center',
-    justifyContent: 'flex-start',
+    justifyContent: 'start',
   },
   imagem: {
     resizeMode: 'center',
@@ -63,6 +63,6 @@ const styles = StyleSheet.create({
     borderRadius: 7,
     paddingLeft: 10,
     fontSize: 18,
-    marginBottom: 20
+    marginBottom: 10,
   }
 });

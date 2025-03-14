@@ -24,7 +24,7 @@ export default (props) => {
 
 const styles = StyleSheet.create({
   resultContainer: {
-    marginTop: 20,
+    marginTop: 5,
     alignItems: "center",
   },
   resultText: {
